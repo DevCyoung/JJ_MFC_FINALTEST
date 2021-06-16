@@ -5,26 +5,11 @@
 #include "JJ_FIN_TEST.h"
 #include "FigureManager.h"
 
-
-// FigureManager
-
 IMPLEMENT_DYNAMIC(FigureManager, CWnd)
 
-FigureManager::FigureManager()
-{
+FigureManager::FigureManager(){}
+FigureManager::~FigureManager(){}
 
-}
-
-FigureManager::~FigureManager()
-{
-}
-
-void FigureManager::CurDraw(CDC &pDC)
-{
-
-
-
-}
 void FigureManager::AllDraw(CDC& pDC)
 {
 
@@ -51,9 +36,5 @@ void FigureManager:: NextFigure(int x1, int y1, int x2, int y2, COLORREF color, 
 
 BEGIN_MESSAGE_MAP(FigureManager, CWnd)
 END_MESSAGE_MAP()
-
-
-
-// FigureManager 메시지 처리기
 
 

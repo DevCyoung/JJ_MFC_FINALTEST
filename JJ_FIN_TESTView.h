@@ -51,24 +51,19 @@ public:
 	int figureCount = 0;
 	
 	void DrawFigure(int x1, int y1, int x2, int y2, CDC& dc);
-	void SaveFigure(int x1, int y1, int x2, int y2 , Button figure);
+	
 
-	void SetColor(int sel)
-	{
-		curColor = colors[sel];
-	}
 
-	void SetPixel(int sel)
-	{
-		curPixel = fixels[sel];
-	}
+	void SetColor(int sel);
+	void SetPixel(int sel);
+	
 
 
 
 // 재정의입니다.
 public:
 	virtual void OnDraw(CDC* pDC);  // 이 뷰를 그리기 위해 재정의되었습니다.
-	virtual BOOL PreCreateWindow(CREATESTRUCT& cs);
+//	virtual BOOL PreCreateWindow(CREATESTRUCT& cs);
 	
 
 protected:
@@ -80,8 +75,8 @@ protected:
 public:
 	virtual ~CJJFINTESTView();
 #ifdef _DEBUG
-	virtual void AssertValid() const;
-	virtual void Dump(CDumpContext& dc) const;
+//	virtual void AssertValid() const;
+//	virtual void Dump(CDumpContext& dc) const;
 #endif
 
 protected:
@@ -98,8 +93,10 @@ public:
 	afx_msg int OnCreate(LPCREATESTRUCT lpCreateStruct);
 
 	// 사용자 정의입니다.
+
 	afx_msg void OnClickCircle();
 	afx_msg void OnClickRECTANGLE();
+
 	afx_msg void OnClickPreViewPrint();
 
 	// MFC 정의
@@ -112,7 +109,7 @@ public:
 
 
 //	afx_msg void OnPaint();
-	afx_msg void OnTimer(UINT_PTR nIDEvent);
+//	afx_msg void OnTimer(UINT_PTR nIDEvent);
 };
 
 #ifndef _DEBUG  // JJ_FIN_TESTView.cpp의 디버그 버전

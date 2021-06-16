@@ -30,14 +30,14 @@ public:
 
 // 재정의입니다.
 public:
-	virtual BOOL PreCreateWindow(CREATESTRUCT& cs);
+//	virtual BOOL PreCreateWindow(CREATESTRUCT& cs);
 
 // 구현입니다.
 public:
 	virtual ~CMainFrame();
 #ifdef _DEBUG
-	virtual void AssertValid() const;
-	virtual void Dump(CDumpContext& dc) const;
+//	virtual void AssertValid() const;
+//	virtual void Dump(CDumpContext& dc) const;
 #endif
 
 protected:  // 컨트롤 모음이 포함된 멤버입니다.
@@ -51,8 +51,8 @@ protected:  // 컨트롤 모음이 포함된 멤버입니다.
 protected:
 	afx_msg int OnCreate(LPCREATESTRUCT lpCreateStruct);
 
-	afx_msg void OnSelectClorBox();
-	afx_msg void OnSelectPixelBox();
+	afx_msg void OnClorCheckBox();
+	afx_msg void OnPixelCheckBox();
 
 
 	DECLARE_MESSAGE_MAP()

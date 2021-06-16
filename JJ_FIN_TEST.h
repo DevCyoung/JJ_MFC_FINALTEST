@@ -26,7 +26,7 @@ public:
 
 // 구현입니다.
 	afx_msg void OnAppAbout();
-	afx_msg void OnClicked();
+	
 
 	DECLARE_MESSAGE_MAP()
 };

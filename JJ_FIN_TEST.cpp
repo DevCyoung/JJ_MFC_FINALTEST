@@ -29,7 +29,6 @@ BEGIN_MESSAGE_MAP(CJJFINTESTApp, CWinApp)
 	ON_COMMAND(ID_FILE_OPEN, &CWinApp::OnFileOpen)*/
 
 	// 표준 인쇄 설정 명령입니다.
-
 	/*ON_COMMAND(ID_FILE_PRINT_SETUP, &CWinApp::OnFilePrintSetup)
 	ON_COMMAND(ID_MY_CIRCLE, &CJJFINTESTApp::OnClick)
 	ON_COMMAND(ID_MY_RECTANGLE, &CJJFINTESTApp::OnClick)*/
@@ -150,14 +149,9 @@ protected:
 	DECLARE_MESSAGE_MAP()
 public:
 
-//	afx_msg void OnPaint();
 //	afx_msg int OnCreate(LPCREATESTRUCT lpCreateStruct);
-	afx_msg int OnCreate(LPCREATESTRUCT lpCreateStruct);
-//	afx_msg void OnSelchangeCombo02();
-//	afx_msg void OnSelchangeCombo01();
-	afx_msg void OnSelchangeCombo01();
-	afx_msg void OnSelchangeCombo02();
-	afx_msg BOOL OnEraseBkgnd(CDC* pDC);
+
+//	afx_msg BOOL OnEraseBkgnd(CDC* pDC);
 };
 
 CAboutDlg::CAboutDlg() noexcept : CDialogEx(IDD_ABOUTBOX)
@@ -170,14 +164,8 @@ void CAboutDlg::DoDataExchange(CDataExchange* pDX)
 }
 
 BEGIN_MESSAGE_MAP(CAboutDlg, CDialogEx)
-//	ON_WM_PAINT()
-//	ON_WM_CREATE()
-ON_WM_CREATE()
-//ON_CBN_SELCHANGE(ID_COMBO_02, &CAboutDlg::OnSelchangeCombo02)
-//ON_CBN_SELCHANGE(ID_COMBO_01, &CAboutDlg::OnSelchangeCombo01)
-ON_CBN_SELCHANGE(ID_COMBO_01, &CAboutDlg::OnSelchangeCombo01)
-ON_CBN_SELCHANGE(ID_COMBO_02, &CAboutDlg::OnSelchangeCombo02)
-ON_WM_ERASEBKGND()
+//ON_WM_CREATE()
+//ON_WM_ERASEBKGND()
 END_MESSAGE_MAP()
 
 // 대화 상자를 실행하기 위한 응용 프로그램 명령입니다.
@@ -188,50 +176,3 @@ void CJJFINTESTApp::OnAppAbout()
 	aboutDlg.DoModal();
 }
 
-void CJJFINTESTApp::OnClicked()
-{
-	AfxMessageBox(TEXT("사용자가 문서를 열었습니다ㅣ"));
-	
-
-	  
-}
-
-int CAboutDlg::OnCreate(LPCREATESTRUCT lpCreateStruct)
-{
-	if (CDialogEx::OnCreate(lpCreateStruct) == -1)
-		return -1;
-
-	// TODO:  여기에 특수화된 작성 코드를 추가합니다
-	
-	
-
-	return 0;
-}
-
-
-
-
-void CAboutDlg::OnSelchangeCombo01()
-{
-
-	
-}
-
-
-void CAboutDlg::OnSelchangeCombo02()
-{
-	
-}
-
-
-
-
-
-BOOL CAboutDlg::OnEraseBkgnd(CDC* pDC)
-{
-	CRect rect;
-	GetClientRect(rect);
-	pDC->FillSolidRect(rect, RGB(255, 255, 255));
-
-	return FALSE;
-}

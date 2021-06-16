@@ -22,8 +22,6 @@ public:
 	int HEAD = 0;
 
 public:
-
-	void CurDraw(CDC& pDC);
 	void AllDraw(CDC &pDC);
 	void NextFigure(int x1, int y1, int x2, int y2, COLORREF color, int curPixel, int figure);
 
