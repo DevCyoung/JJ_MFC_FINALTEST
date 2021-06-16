@@ -1,0 +1,2 @@
+# JJ_MFC_FINALTEST
+ MFC 기말고사
