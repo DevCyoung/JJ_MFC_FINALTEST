@@ -34,6 +34,7 @@ BEGIN_MESSAGE_MAP(CJJFINTESTView, CView)
 	ON_COMMAND(ID_MY_RECTANGLE,		 &CJJFINTESTView::OnClickRECTANGLE)
 	ON_COMMAND(ID_MY_CIRCLE_FILL,	 &CJJFINTESTView::OnClickCircleFILL)
 	ON_COMMAND(ID_MY_RECTANGLE_FILL, &CJJFINTESTView::OnClickRECTANGLEFILL)
+	ON_COMMAND(ID_MY_CLEAR, &CJJFINTESTView::OnClickCLEAR)
 
 
 	// MFC 정의
@@ -128,7 +129,9 @@ void CJJFINTESTView::OnLButtonUp(UINT nFlags, CPoint point)
 	isDraw = FALSE;
 
 	//도형을 초기화합니다.
-	figureManager.NextFigure(x1,y1,x2,y2,curColor , curPixel , curButton , isFill);
+
+	if( curButton != 0)
+		figureManager.NextFigure(x1,y1,x2,y2,curColor , curPixel , curButton , isFill);
 
 }
 
@@ -168,6 +171,20 @@ void CJJFINTESTView::OnClickRECTANGLEFILL()
 	isFill = TRUE;
 }
 
+void CJJFINTESTView::OnClickCLEAR()
+{
+	for (int i = 0; i < FIGURE_PULL; i++)
+	{
+		figureManager.figures[i].isAlive = false;
+		figureManager.curPos = 0;
+	}
+	x1 = 0;
+	y1 = 0;
+	x2 = 0; 
+	y2 = 0;
+	Invalidate(FALSE);
+	
+}
 
 
 

@@ -64,7 +64,7 @@ public:
 	afx_msg void OnClickRECTANGLE();
 	afx_msg void OnClickCircleFILL();
 	afx_msg void OnClickRECTANGLEFILL();
-
+	afx_msg void OnClickCLEAR();
 
 	afx_msg void OnClickPreViewPrint();
 

@@ -10,8 +10,6 @@ Figure::~Figure(){}
 
 void Figure::SetInit(int x1, int y1, int x2, int y2, COLORREF color, int curPixel, int figure ,BOOL isFill)
 {
-	if (isAlive == TRUE)
-		return;
 
 	this->x1 = x1;
 	this->y1 = y1;
@@ -69,7 +67,7 @@ void Figure::Show(CDC& pDC)
 
 	pDC.SelectObject(oldBrush);
 	pDC.SelectObject(oldPen);     // 시스템 펜 객체를 돌려줌
-	pDC.SelectObject(oldBrush);    // 시스템 브러시 객체를 돌려줌
+	
 }
 
 BEGIN_MESSAGE_MAP(Figure, CWnd)

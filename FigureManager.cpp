@@ -11,10 +11,12 @@ FigureManager::~FigureManager(){}
 void FigureManager::AllDraw(CDC& pDC)
 {
 
+
 	for (int i = 0; i < FIGURE_PULL; i++)
 	{
 		figures[i].Show(pDC);
 	}
+
 
 }
 void FigureManager:: NextFigure(int x1, int y1, int x2, int y2, COLORREF color, int curPixel, int figure , BOOL isFill)
