@@ -99,7 +99,6 @@ BOOL CMainFrame::AddCombo(CToolBar* pToolBar, CComboBox* pComboBox, int nIndex, 
 
 	//콤보박스가 추가되어야할 버튼의 크기를 재설정
 	pToolBar->SetButtonInfo(nIndex, nID, TBBS_SEPARATOR, cx);
-
 	return TRUE;
 }
 
@@ -113,7 +112,7 @@ void CMainFrame::OnClorCheckBox()
 	pView->SetColor(colorBox.GetCurSel());
 
 }
-
+// 체크박스 선택시 실행됩니다.
 void CMainFrame::OnPixelCheckBox()
 {
 	CMainFrame* pFrame = (CMainFrame*)AfxGetMainWnd();

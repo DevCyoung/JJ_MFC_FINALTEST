@@ -18,7 +18,6 @@ void FigureManager::AllDraw(CDC& pDC)
 		figures[i].Show(pDC);
 	}
 
-
 }
 void FigureManager:: NextFigure(int x1, int y1, int x2, int y2, COLORREF color, int curPixel, int figure)
 {

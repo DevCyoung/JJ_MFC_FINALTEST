@@ -26,14 +26,9 @@ IMPLEMENT_DYNCREATE(CJJFINTESTView, CView)
 
 BEGIN_MESSAGE_MAP(CJJFINTESTView, CView)
 
-
-	// 표준 인쇄 명령입니다.
-	/*ON_COMMAND(ID_FILE_PRINT, &CView::OnFilePrint)*/
-	/*ON_COMMAND(ID_FILE_PRINT_DIRECT, &CView::OnFilePrint)
-	ON_COMMAND(ID_FILE_PRINT_PREVIEW, &CView::OnFilePrintPreview)*/
-
 	//사용자 정의
 	ON_COMMAND(ID_FILE_PRINT,   &CJJFINTESTView::OnClickPreViewPrint)
+	ON_COMMAND(ID_MY_PRINT,     &CView::OnFilePrint)
 	ON_COMMAND(ID_MY_CIRCLE,    &CJJFINTESTView::OnClickCircle)
 	ON_COMMAND(ID_MY_RECTANGLE, &CJJFINTESTView::OnClickRECTANGLE)
 
@@ -49,15 +44,11 @@ int CJJFINTESTView::OnCreate(LPCREATESTRUCT lpCreateStruct)
 {
 	if (CView::OnCreate(lpCreateStruct) == -1)
 		return -1;
-
 	isDraw = TRUE;
-
 	return 0;
 }
 
-
 // CJJFINTESTView 생성/소멸
-
 CJJFINTESTView::CJJFINTESTView() noexcept{}
 CJJFINTESTView::~CJJFINTESTView(){}
 
@@ -107,67 +98,35 @@ void CJJFINTESTView::OnDraw(CDC* pDC)
 
 #ifdef _DEBUG
 
-//여기서부터 사용자가 생성하였습니다.
-void CJJFINTESTView::DrawFigure(int x1, int y1, int x2, int y2, CDC& dc)
-{
-
-	CPen pen;
-	pen.CreatePen(PS_DOT, curPixel, curColor );    
-	CPen* oldPen = dc.SelectObject(&pen);
-	CBrush brush;
-	CBrush* oldBrush = dc.SelectObject(&brush);
-	dc.SelectStockObject(NULL_BRUSH);
-
-	switch (curButton)
-	{
-		case CIRCLE:
-			dc.Ellipse(x1, y1, x2, y2);
-			break;
-		case RECTANGLE:
-			dc.Rectangle(x1, y1, x2, y2);
-			break;
-	}
-
-	dc.SelectObject(oldBrush);
-	dc.SelectObject(oldPen);     // 시스템 펜 객체를 돌려줌
-
-}
-
-
+// 도형을 그리는것은 예제 Circle을 대부분 참고하였습니다.
 void CJJFINTESTView::OnMouseMove(UINT nFlags, CPoint point)
 {
-	// TODO: 여기에 메시지 처리기 코드를 추가 및/또는 기본값을 호출합니다.
-	// 그리기 모드이면 타원을 지우고 그리기를 반복한다.
 
 	if (isDraw) {
-
 		CClientDC dc(this);
 		x2 = point.x;
 		y2 = point.y;
-
 		Invalidate(FALSE);
-
 	}
+
 }
 
 
 void CJJFINTESTView::OnLButtonDown(UINT nFlags, CPoint point)
 {
-
 	isDraw = TRUE;
 	x1 = x2 = point.x;
 	y1 = y2 = point.y;
-
 }
 void CJJFINTESTView::OnLButtonUp(UINT nFlags, CPoint point)
 {
-
-	CClientDC dc(this);
 	x2 = point.x;
 	y2 = point.y;
 	isDraw = FALSE;
+	// 다음으로 사용할 도형을 초기화합니다.
 	figureManager.NextFigure(x1,y1,x2,y2,curColor , curPixel , curButton);
 }
+
 void CJJFINTESTView::SetColor(int sel)
 {
 	curColor = colors[sel];
@@ -177,27 +136,10 @@ void CJJFINTESTView::SetPixel(int sel)
 {
 	curPixel = fixels[sel];
 }
-
-
-
-CJJFINTESTDoc* CJJFINTESTView::GetDocument() const // 디버그되지 않은 버전은 인라인으로 지정됩니다.
-{
-	ASSERT(m_pDocument->IsKindOf(RUNTIME_CLASS(CJJFINTESTDoc)));
-	return (CJJFINTESTDoc*)m_pDocument;
-}
 #endif //_DEBUG
 
-
-
-
-
-
-
-
-
-
-
-
+///////////////////////////////////////////
+//툴바 선택시 실행되는 함수입니다.
 void CJJFINTESTView::OnClickCircle()
 {
 	curButton = CIRCLE;
@@ -211,6 +153,9 @@ void CJJFINTESTView::OnClickPreViewPrint()
 	CView::OnFilePrintPreview();
 }
 
+//툴바 선택시 실행되는 함수입니다.
+///////////////////////////////////////////
+
 BOOL CJJFINTESTView::OnPreparePrinting(CPrintInfo* pInfo)
 {
 	// 기본적인 준비
@@ -219,11 +164,15 @@ BOOL CJJFINTESTView::OnPreparePrinting(CPrintInfo* pInfo)
 void CJJFINTESTView::OnBeginPrinting(CDC* pDC, CPrintInfo* pInfo)
 {
 
-	
-
 	// TODO: 인쇄하기 전에 추가 초기화 작업을 추가합니다.
 }
 void CJJFINTESTView::OnEndPrinting(CDC* /*pDC*/, CPrintInfo* /*pInfo*/)
 {
 	// TODO: 인쇄 후 정리 작업을 추가합니다.
+}
+
+CJJFINTESTDoc* CJJFINTESTView::GetDocument() const // 디버그되지 않은 버전은 인라인으로 지정됩니다.
+{
+	ASSERT(m_pDocument->IsKindOf(RUNTIME_CLASS(CJJFINTESTDoc)));
+	return (CJJFINTESTDoc*)m_pDocument;
 }

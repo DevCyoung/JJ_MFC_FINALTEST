@@ -48,12 +48,6 @@ public:
 	FigureManager figureManager;
 
 	
-	int figureCount = 0;
-	
-	void DrawFigure(int x1, int y1, int x2, int y2, CDC& dc);
-	
-
-
 	void SetColor(int sel);
 	void SetPixel(int sel);
 	
