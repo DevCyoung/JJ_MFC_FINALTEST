@@ -16,10 +16,7 @@ public:
 
 public:
 	Figure figures[FIGURE_PULL];
-
 	int curPos = 0;
-	int TAIL = 0;
-	int HEAD = 0;
 
 public:
 	void AllDraw(CDC &pDC);

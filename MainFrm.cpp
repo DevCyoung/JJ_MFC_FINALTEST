@@ -62,14 +62,14 @@ int CMainFrame::OnCreate(LPCREATESTRUCT lpCreateStruct)
 	DockControlBar(&m_wndToolBar);
 
 	// 콤보박스를 추가합니다.
-	AddCombo(&m_wndToolBar, &colorBox, 4, 100, 100,   WS_CHILD | CBS_DROPDOWN |
+	AddCombo(&m_wndToolBar, &colorBox, 3, 100, 100,   WS_CHILD | CBS_DROPDOWN |
 		CBS_AUTOHSCROLL | WS_VSCROLL | CBS_HASSTRINGS, ID_COMBO_01);
 	colorBox.AddString(_T("RED"));
 	colorBox.AddString(_T("BLUE"));
 	colorBox.AddString(_T("GREEN"));
 	colorBox.SetCurSel(0);
 
-	AddCombo(&m_wndToolBar, &pixelBox, 5, 100, 100, WS_CHILD | CBS_DROPDOWN |
+	AddCombo(&m_wndToolBar, &pixelBox, 4, 100, 100, WS_CHILD | CBS_DROPDOWN |
 		CBS_AUTOHSCROLL | WS_VSCROLL | CBS_HASSTRINGS, ID_COMBO_02);
 	pixelBox.AddString(_T("1  px"));
 	pixelBox.AddString(_T("5  px"));
@@ -79,7 +79,6 @@ int CMainFrame::OnCreate(LPCREATESTRUCT lpCreateStruct)
 	return 0;
 }
 
-// CMainFrame 진단
 #ifdef _DEBUG
 
 BOOL CMainFrame::AddCombo(CToolBar* pToolBar, CComboBox* pComboBox, int nIndex, int cx, int cy, DWORD dwStyle, UINT nID)
@@ -103,7 +102,7 @@ BOOL CMainFrame::AddCombo(CToolBar* pToolBar, CComboBox* pComboBox, int nIndex, 
 }
 
 
-// 체크박스 선택시 실행됩니다.
+// 콤보박스 선택시 실행됩니다.
 void CMainFrame::OnClorCheckBox()
 {
 
@@ -112,13 +111,11 @@ void CMainFrame::OnClorCheckBox()
 	pView->SetColor(colorBox.GetCurSel());
 
 }
-// 체크박스 선택시 실행됩니다.
+// 콤보박스 선택시 실행됩니다.
 void CMainFrame::OnPixelCheckBox()
 {
 	CMainFrame* pFrame = (CMainFrame*)AfxGetMainWnd();
 	CJJFINTESTView* pView = (CJJFINTESTView*)pFrame->GetActiveView();
 	pView->SetPixel(pixelBox.GetCurSel());
 }
-
-
 #endif //_DEBUG

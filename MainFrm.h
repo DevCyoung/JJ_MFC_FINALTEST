@@ -22,28 +22,21 @@ public:
 	CToolBar          m_wndToolBar;
 	CStatusBar        m_wndStatusBar;
 
-
+	//추가할 콤보박스
 	CComboBox colorBox;
 	CComboBox pixelBox;
 	
-	
-
 // 재정의입니다.
 public:
-//	virtual BOOL PreCreateWindow(CREATESTRUCT& cs);
 
-// 구현입니다.
 public:
 	virtual ~CMainFrame();
 #ifdef _DEBUG
-//	virtual void AssertValid() const;
-//	virtual void Dump(CDumpContext& dc) const;
+
 #endif
 
-protected:  // 컨트롤 모음이 포함된 멤버입니다.
-
-	
-
+protected: 
+	//콤보박스 추가
 	BOOL CMainFrame::AddCombo(CToolBar* pToolBar, CComboBox* pComboBox, int nIndex, int cx, int cy, DWORD dwStyle, UINT nID);
 
 
@@ -51,6 +44,7 @@ protected:  // 컨트롤 모음이 포함된 멤버입니다.
 protected:
 	afx_msg int OnCreate(LPCREATESTRUCT lpCreateStruct);
 
+	//콤보박스 선택시 호출
 	afx_msg void OnClorCheckBox();
 	afx_msg void OnPixelCheckBox();
 

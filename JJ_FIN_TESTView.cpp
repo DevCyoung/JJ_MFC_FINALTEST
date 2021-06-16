@@ -47,7 +47,6 @@ int CJJFINTESTView::OnCreate(LPCREATESTRUCT lpCreateStruct)
 	isDraw = TRUE;
 	return 0;
 }
-
 // CJJFINTESTView 생성/소멸
 CJJFINTESTView::CJJFINTESTView() noexcept{}
 CJJFINTESTView::~CJJFINTESTView(){}
@@ -152,24 +151,12 @@ void CJJFINTESTView::OnClickPreViewPrint()
 {
 	CView::OnFilePrintPreview();
 }
-
 //툴바 선택시 실행되는 함수입니다.
 ///////////////////////////////////////////
 
-BOOL CJJFINTESTView::OnPreparePrinting(CPrintInfo* pInfo)
-{
-	// 기본적인 준비
-	return DoPreparePrinting(pInfo);
-}
-void CJJFINTESTView::OnBeginPrinting(CDC* pDC, CPrintInfo* pInfo)
-{
-
-	// TODO: 인쇄하기 전에 추가 초기화 작업을 추가합니다.
-}
-void CJJFINTESTView::OnEndPrinting(CDC* /*pDC*/, CPrintInfo* /*pInfo*/)
-{
-	// TODO: 인쇄 후 정리 작업을 추가합니다.
-}
+BOOL CJJFINTESTView::OnPreparePrinting(CPrintInfo* pInfo){return DoPreparePrinting(pInfo);}
+void CJJFINTESTView::OnBeginPrinting(CDC* pDC, CPrintInfo* pInfo){}
+void CJJFINTESTView::OnEndPrinting(CDC* /*pDC*/, CPrintInfo* /*pInfo*/){}
 
 CJJFINTESTDoc* CJJFINTESTView::GetDocument() const // 디버그되지 않은 버전은 인라인으로 지정됩니다.
 {
