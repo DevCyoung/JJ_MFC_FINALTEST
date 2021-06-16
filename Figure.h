@@ -1,9 +1,6 @@
 #pragma once
 
-
 // Figure
-
-
 class Figure : public CWnd
 {
 	DECLARE_DYNAMIC(Figure)
@@ -24,7 +21,6 @@ public:
 	int pixel;
 	int figure;
 	
-
 public:
 	void SetInit(int x1, int y1, int x2, int y2, COLORREF color, int curPixel, int figure);
 	void SetPosition(int x1, int y1, int x2, int y2);

@@ -1,6 +1,4 @@
 ﻿// Figure.cpp: 구현 파일
-//
-
 #include "pch.h"
 #include "JJ_FIN_TEST.h"
 #include "Figure.h"
@@ -58,10 +56,7 @@ void Figure::Show(CDC& pDC)
 	pDC.SelectObject(oldBrush);
 	pDC.SelectObject(oldPen);     // 시스템 펜 객체를 돌려줌
 	pDC.SelectObject(oldBrush);    // 시스템 브러시 객체를 돌려줌
-
 }
-
-
 
 BEGIN_MESSAGE_MAP(Figure, CWnd)
 END_MESSAGE_MAP()

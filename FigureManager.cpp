@@ -1,6 +1,4 @@
 ﻿// FigureManager.cpp: 구현 파일
-//
-
 #include "pch.h"
 #include "JJ_FIN_TEST.h"
 #include "FigureManager.h"

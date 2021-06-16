@@ -1,9 +1,6 @@
 ﻿#pragma once
-
 #include "Figure.h"
-
 // FigureManager
-
 #define FIGURE_PULL 10000
 
 class FigureManager : public CWnd
