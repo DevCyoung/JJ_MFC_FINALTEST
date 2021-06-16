@@ -12,14 +12,17 @@
 #define ID_BUTTON32778                  32778
 #define ID_BUTTON32779                  32779
 #define ID_BUTTON32780                  32780
-#define ID_MY_PRINT                     32784
+#define ID_BUTTON32784                  32784
+#define ID_MY_PRINT                     32785
+#define ID_MY_CIRCLE_FILL               32787
+#define ID_MY_RECTANGLE_FILL            32788
 
 // Next default values for new objects
 // 
 #ifdef APSTUDIO_INVOKED
 #ifndef APSTUDIO_READONLY_SYMBOLS
 #define _APS_NEXT_RESOURCE_VALUE        311
-#define _APS_NEXT_COMMAND_VALUE         32785
+#define _APS_NEXT_COMMAND_VALUE         32789
 #define _APS_NEXT_CONTROL_VALUE         1003
 #define _APS_NEXT_SYMED_VALUE           310
 #endif

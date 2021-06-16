@@ -20,9 +20,11 @@ public:
 	COLORREF color;
 	int pixel;
 	int figure;
+	BOOL isFill = FALSE;
+
 	
 public:
-	void SetInit(int x1, int y1, int x2, int y2, COLORREF color, int curPixel, int figure);
+	void SetInit(int x1, int y1, int x2, int y2, COLORREF color, int curPixel, int figure , BOOL isFill);
 	void SetPosition(int x1, int y1, int x2, int y2);
 	void Show(CDC& pDC);
 		

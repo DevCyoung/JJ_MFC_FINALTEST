@@ -17,7 +17,7 @@ public:
 
 public:
 	void AllDraw(CDC &pDC);
-	void NextFigure(int x1, int y1, int x2, int y2, COLORREF color, int curPixel, int figure);
+	void NextFigure(int x1, int y1, int x2, int y2, COLORREF color, int curPixel, int figure , BOOL isFill );
 
 
 protected:

@@ -34,6 +34,8 @@ public:
 	int curPixel = 1;
 
 	BOOL isDraw; 
+	BOOL isFill;
+
 	int x1, y1, x2, y2; 
 
 	FigureManager figureManager;
@@ -60,6 +62,10 @@ public:
 	// 사용자 정의입니다.
 	afx_msg void OnClickCircle();
 	afx_msg void OnClickRECTANGLE();
+	afx_msg void OnClickCircleFILL();
+	afx_msg void OnClickRECTANGLEFILL();
+
+
 	afx_msg void OnClickPreViewPrint();
 
 	// MFC 정의

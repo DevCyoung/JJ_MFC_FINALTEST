@@ -8,7 +8,7 @@ IMPLEMENT_DYNAMIC(Figure, CWnd)
 Figure::Figure(){}
 Figure::~Figure(){}
 
-void Figure::SetInit(int x1, int y1, int x2, int y2, COLORREF color, int curPixel, int figure)
+void Figure::SetInit(int x1, int y1, int x2, int y2, COLORREF color, int curPixel, int figure ,BOOL isFill)
 {
 	if (isAlive == TRUE)
 		return;
@@ -20,6 +20,7 @@ void Figure::SetInit(int x1, int y1, int x2, int y2, COLORREF color, int curPixe
 	this->color = color;
 	this->pixel = curPixel;
 	this->figure = figure;
+	this->isFill = isFill;
 	this->isAlive = true;
 
 }
@@ -39,11 +40,24 @@ void Figure::Show(CDC& pDC)
 		return;
 
 	CPen pen;
-	pen.CreatePen(PS_DOT, pixel, color);    // 빨간색 펜을 생성
-	CPen* oldPen = pDC.SelectObject(&pen);
 	CBrush brush;
+
+	pen.CreatePen(PS_DOT, pixel, color);    
+	CPen* oldPen = pDC.SelectObject(&pen);
+	
+
+	if (isFill == FALSE)
+	{
+		pDC.SelectStockObject(NULL_BRUSH);
+	}
+	else
+	{
+		brush.CreateSolidBrush( color );
+	}
+
 	CBrush* oldBrush = pDC.SelectObject(&brush);
-	pDC.SelectStockObject(NULL_BRUSH);
+
+
 	if (figure == CIRCLE)
 	{
 		pDC.Ellipse(x1, y1, x2, y2);

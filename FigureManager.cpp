@@ -17,10 +17,10 @@ void FigureManager::AllDraw(CDC& pDC)
 	}
 
 }
-void FigureManager:: NextFigure(int x1, int y1, int x2, int y2, COLORREF color, int curPixel, int figure)
+void FigureManager:: NextFigure(int x1, int y1, int x2, int y2, COLORREF color, int curPixel, int figure , BOOL isFill)
 {
 
-	figures[curPos].SetInit(x1, y1,  x2,  y2,  color,  curPixel,  figure);
+	figures[curPos].SetInit(x1, y1,  x2,  y2,  color,  curPixel,  figure , isFill);
 	++curPos;
 
 	// 일정 FIGURE_PULL 이상 증가시 처음도형을 없앱니다.

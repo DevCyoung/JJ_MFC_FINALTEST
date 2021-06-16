@@ -29,8 +29,12 @@ BEGIN_MESSAGE_MAP(CJJFINTESTView, CView)
 	//사용자 정의
 	ON_COMMAND(ID_FILE_PRINT,   &CJJFINTESTView::OnClickPreViewPrint)
 	ON_COMMAND(ID_MY_PRINT,     &CView::OnFilePrint)
-	ON_COMMAND(ID_MY_CIRCLE,    &CJJFINTESTView::OnClickCircle)
-	ON_COMMAND(ID_MY_RECTANGLE, &CJJFINTESTView::OnClickRECTANGLE)
+
+	ON_COMMAND(ID_MY_CIRCLE,		 &CJJFINTESTView::OnClickCircle)
+	ON_COMMAND(ID_MY_RECTANGLE,		 &CJJFINTESTView::OnClickRECTANGLE)
+	ON_COMMAND(ID_MY_CIRCLE_FILL,	 &CJJFINTESTView::OnClickCircleFILL)
+	ON_COMMAND(ID_MY_RECTANGLE_FILL, &CJJFINTESTView::OnClickRECTANGLEFILL)
+
 
 	// MFC 정의
 	ON_WM_MOUSEMOVE()
@@ -83,7 +87,7 @@ void CJJFINTESTView::OnDraw(CDC* pDC)
 	
 	//현재 그림을 그립니다.
 	Figure fig;
-	fig.SetInit(x1, y1, x2, y2, curColor, curPixel, curButton);
+	fig.SetInit(x1, y1, x2, y2, curColor, curPixel, curButton,isFill);
 	fig.Show(memDC);
 	
 	/// ///////////////////////////////////////////////////////////////////
@@ -122,8 +126,10 @@ void CJJFINTESTView::OnLButtonUp(UINT nFlags, CPoint point)
 	x2 = point.x;
 	y2 = point.y;
 	isDraw = FALSE;
-	// 다음으로 사용할 도형을 초기화합니다.
-	figureManager.NextFigure(x1,y1,x2,y2,curColor , curPixel , curButton);
+
+	//도형을 초기화합니다.
+	figureManager.NextFigure(x1,y1,x2,y2,curColor , curPixel , curButton , isFill);
+
 }
 
 void CJJFINTESTView::SetColor(int sel)
@@ -142,11 +148,29 @@ void CJJFINTESTView::SetPixel(int sel)
 void CJJFINTESTView::OnClickCircle()
 {
 	curButton = CIRCLE;
+	isFill = FALSE;
 }
 void CJJFINTESTView::OnClickRECTANGLE()
 {
 	curButton = RECTANGLE;
+	isFill = FALSE;
 }
+
+void CJJFINTESTView::OnClickCircleFILL()
+{
+	curButton = CIRCLE;
+	isFill = TRUE;
+}
+
+void CJJFINTESTView::OnClickRECTANGLEFILL()
+{
+	curButton = RECTANGLE;
+	isFill = TRUE;
+}
+
+
+
+
 void CJJFINTESTView::OnClickPreViewPrint()
 {
 	CView::OnFilePrintPreview();

@@ -62,14 +62,14 @@ int CMainFrame::OnCreate(LPCREATESTRUCT lpCreateStruct)
 	DockControlBar(&m_wndToolBar);
 
 	// 콤보박스를 추가합니다.
-	AddCombo(&m_wndToolBar, &colorBox, 3, 100, 100,   WS_CHILD | CBS_DROPDOWN |
+	AddCombo(&m_wndToolBar, &colorBox, 4, 100, 100,   WS_CHILD | CBS_DROPDOWN |
 		CBS_AUTOHSCROLL | WS_VSCROLL | CBS_HASSTRINGS, ID_COMBO_01);
 	colorBox.AddString(_T("RED"));
 	colorBox.AddString(_T("BLUE"));
 	colorBox.AddString(_T("GREEN"));
 	colorBox.SetCurSel(0);
 
-	AddCombo(&m_wndToolBar, &pixelBox, 4, 100, 100, WS_CHILD | CBS_DROPDOWN |
+	AddCombo(&m_wndToolBar, &pixelBox, 5, 100, 100, WS_CHILD | CBS_DROPDOWN |
 		CBS_AUTOHSCROLL | WS_VSCROLL | CBS_HASSTRINGS, ID_COMBO_02);
 	pixelBox.AddString(_T("1  px"));
 	pixelBox.AddString(_T("5  px"));
